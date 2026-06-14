@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "entity_metrics_v1",
+  "title": "Entity metrics: entity, month, active seats, seat churn rate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entity", "month", "active_seats", "seat_churn_rate"],
+  "properties": {
+    "entity": { "type": "string", "minLength": 1 },
+    "month": { "type": "string", "minLength": 1 },
+    "active_seats": { "type": "string", "minLength": 1 },
+    "seat_churn_rate": { "type": "string", "minLength": 1 }
+  }
+}

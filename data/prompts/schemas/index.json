@@ -1,0 +1,13 @@
+{
+  "entity_one_field_v1": "data/prompts/schemas/entity_one_field_v1.schema.json",
+  "entity_three_field_v1": "data/prompts/schemas/entity_three_field_v1.schema.json",
+  "entity_total_revenue_v1": "data/prompts/schemas/entity_total_revenue_v1.schema.json",
+  "entity_metrics_v1": "data/prompts/schemas/entity_metrics_v1.schema.json",
+  "ops_one_field_v1": "data/prompts/schemas/ops_one_field_v1.schema.json",
+  "ops_three_field_v1": "data/prompts/schemas/ops_three_field_v1.schema.json",
+  "product_three_field_v1": "data/prompts/schemas/product_three_field_v1.schema.json",
+  "product_exposure_v1": "data/prompts/schemas/product_exposure_v1.schema.json",
+  "week_one_field_v1": "data/prompts/schemas/week_one_field_v1.schema.json",
+  "kv_entity_metric_v1": "data/prompts/schemas/kv_entity_metric_v1.schema.json",
+  "kv_entity_date_metric_v1": "data/prompts/schemas/kv_entity_date_metric_v1.schema.json"
+}

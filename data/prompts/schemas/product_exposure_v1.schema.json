@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "product_exposure_v1",
+  "title": "Product exposure: feature, eligible users, exposure rate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature", "eligible_users", "exposure_rate"],
+  "properties": {
+    "feature": { "type": "string", "minLength": 1 },
+    "eligible_users": { "type": "string", "minLength": 1 },
+    "exposure_rate": { "type": "string", "minLength": 1 }
+  }
+}

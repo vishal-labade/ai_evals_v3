@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ops_three_field_v1",
+  "title": "Ops: cluster + GPUs + avg queue time",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cluster", "gpus", "avg_queue_time"],
+  "properties": {
+    "cluster": { "type": "string", "minLength": 1 },
+    "gpus": { "type": "string", "minLength": 1 },
+    "avg_queue_time": { "type": "string", "minLength": 1 }
+  }
+}

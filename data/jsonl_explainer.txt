@@ -1,0 +1,231 @@
+🔵 1️⃣ v2_scenarios.jsonl
+
+What it is:
+Your canonical base scenario definitions.
+
+Purpose:
+
+Source-of-truth scenario templates
+
+Used by expand_v2_suite.py
+
+Contains:
+
+scenario_id
+
+tags
+
+checks (persona / memory / recovery / calibration etc.)
+
+Base prompts
+
+Think of this as:
+
+📦 Raw scenario definitions
+
+You typically do NOT run experiments directly on this unless you intentionally want the base set.
+
+🔵 2️⃣ v2_scenarios_base_20.jsonl
+
+What it is:
+A small subset (20 scenarios).
+
+Purpose:
+
+Smoke tests
+
+Fast iteration
+
+Dev debugging
+
+Think of this as:
+
+⚡ Quick dev test suite
+
+Not for final evaluation.
+
+🔵 3️⃣ v2_scenarios_expanded.jsonl
+
+What it is:
+Expanded version of base scenarios using:
+
+Persona variants
+
+Memory variants
+
+Family combinations
+
+Generated via:
+
+scripts/expand_v2_suite.py
+
+Purpose:
+
+Stress test variants
+
+Larger evaluation set
+
+More combinatorics
+
+Think of this as:
+
+🧬 Expanded combinatorial suite
+
+You only score this if you ran experiments against it.
+
+🔵 4️⃣ v2_suite_50.jsonl
+
+This is your main behavioral suite.
+
+You are using this in:
+
+configs/experiments.yaml
+
+It is:
+
+Frozen
+
+Clean
+
+Curated
+
+Fixed-size (~50 scenarios)
+
+This is your:
+
+🧠 Primary v2 behavioral evaluation dataset
+
+Everything in:
+
+Behavioral baseline
+
+Model size comparisons
+
+Tradeoff experiments
+
+runs on this.
+
+🔵 5️⃣ v2_ctx_cliff_suite_20.jsonl
+
+This is the filler-based context boundary suite.
+
+Purpose:
+
+Inject filler tokens
+
+Push past context window
+
+Detect truncation collapse
+
+Show MCS drop at boundary
+
+Used only in:
+
+configs/experiments_ctx_cliff.yaml
+
+Think of this as:
+
+📉 Context length stress test dataset
+
+You typically only compute:
+
+MCS
+
+drop_turn
+
+mcs_auc
+
+Not persona or format scoring.
+
+🔵 6️⃣ v2_mcs_suite_20.jsonl
+
+This appears to be a memory-only minimal suite.
+
+Purpose:
+
+Test memory compliance in isolation
+
+Debug MCS logic
+
+Possibly older version before ctx_cliff suite
+
+Think of this as:
+
+🧪 Targeted memory-only evaluation
+
+Not required if you use v2_ctx_cliff_suite_20.jsonl.
+
+🔵 7️⃣ v2_families.yaml
+
+Not a suite.
+
+Defines:
+
+Persona variants
+
+Memory value variants
+
+Used by:
+
+expand_v2_suite.py
+
+It does not contain prompts.
+
+🔴 The Big Picture (What You Actually Need)
+
+If you're running:
+
+Behavioral + experiments
+
+You only need:
+
+v2_suite_50.jsonl
+Context boundary demo
+
+You only need:
+
+v2_ctx_cliff_suite_20.jsonl
+
+Everything else is development or expansion machinery.
+
+🔵 Clean Mental Model
+File	Role	Should You Score It?
+v2_scenarios.jsonl	Base templates	❌ Not unless directly run
+v2_scenarios_base_20.jsonl	Dev smoke	❌
+v2_scenarios_expanded.jsonl	Expanded stress	Only if you ran it
+v2_suite_50.jsonl	Main behavioral suite	✅ YES
+v2_ctx_cliff_suite_20.jsonl	Context boundary suite	✅ YES (MCS)
+v2_mcs_suite_20.jsonl	Memory-only test	Optional
+v2_families.yaml	Expansion config	❌ Not scored
+🔴 Your Current Clean Architecture Should Be
+Experiments.yaml → uses
+v2_suite_50.jsonl
+experiments_ctx_cliff.yaml → uses
+v2_ctx_cliff_suite_20.jsonl
+Score:
+
+Scorecard → v2_suite_50.jsonl
+
+MCS → both suites
+
+🔥 If You Want To Simplify The Repo
+
+You could safely archive:
+
+v2_scenarios_base_20.jsonl
+
+v2_mcs_suite_20.jsonl
+
+And keep:
+
+v2_suite_50.jsonl
+
+v2_ctx_cliff_suite_20.jsonl
+
+v2_scenarios.jsonl (as canonical source)
+
+If you want, next I can:
+
+Draw a clean “data lineage” diagram for v2
+
+Or tell you exactly what to delete to reduce confusion without breaking anything    

@@ -1,0 +1,11 @@
+qwen2.5:32b-instruct-q4_K_M:
+  size_b: 32
+  label: "32B"
+
+qwen2.5:72b-instruct-q4_K_M:
+  size_b: 72
+  label: "72B"
+
+gemma2:27b:
+  size_b: 27
+  label: "27B"

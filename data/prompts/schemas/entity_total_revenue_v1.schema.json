@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "entity_total_revenue_v1",
+  "title": "Entity + total revenue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entity", "total_revenue"],
+  "properties": {
+    "entity": { "type": "string", "minLength": 1 },
+    "total_revenue": { "type": "string", "minLength": 1 }
+  }
+}

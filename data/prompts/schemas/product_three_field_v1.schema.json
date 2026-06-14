@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "product_three_field_v1",
+  "title": "Product: feature + week + completed onboarding (or similar)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature", "week", "completed_onboarding"],
+  "properties": {
+    "feature": { "type": "string", "minLength": 1 },
+    "week": { "type": "string", "minLength": 1 },
+    "completed_onboarding": { "type": "string", "minLength": 1 }
+  }
+}

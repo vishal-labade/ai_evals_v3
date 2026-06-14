@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "week_one_field_v1",
+  "title": "Week + one metric",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["week", "high_severity_tickets"],
+  "properties": {
+    "week": { "type": "string", "minLength": 1 },
+    "high_severity_tickets": { "type": "string", "minLength": 1 }
+  }
+}

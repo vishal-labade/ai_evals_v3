@@ -1,0 +1,24 @@
+{
+  "suite": "ai_evals_v1",
+  "suite_version": "1.0.0",
+  "base_count": 30,
+  "expanded_count": 1070,
+  "counts_by_type": {
+    "original": 30,
+    "format": 300,
+    "numeric": 140,
+    "paraphrase": 600
+  },
+  "config": {
+    "include_original": true,
+    "enable_paraphrase": true,
+    "enable_format": true,
+    "enable_numeric": true,
+    "paraphrase_k": 20,
+    "format_k": 10,
+    "numeric_k": 10,
+    "seed": 1337
+  },
+  "base_fingerprint": "e0d721a7fbbdcbc469d5c79d6a3731f0a731ae5629001fb2fc3440da25a8ec79",
+  "expanded_fingerprint": "7db5cc19ed1165c16dc0a7d43d2ecef5d76e755218abf6b7f2d24e58cc02ab11"
+}

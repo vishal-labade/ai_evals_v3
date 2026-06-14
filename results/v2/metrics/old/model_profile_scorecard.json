@@ -1,0 +1,68 @@
+{
+  "models": {
+    "phi3:mini": {
+      "phi_mini": {
+        "bri": 0.5785,
+        "persona_pss": 0.3333,
+        "memory_score": 1.0,
+        "consistency_score": 0.8971
+      }
+    },
+    "qwen2.5:3b": {
+      "qwen_3b": {
+        "bri": 0.5369,
+        "persona_pss": 0.2719,
+        "memory_score": 1.0,
+        "consistency_score": 0.8088
+      }
+    },
+    "gemma2:9b-instruct-q4_K_M": {
+      "gemma_9b_t0": {
+        "bri": 0.6074,
+        "persona_pss": 0.386,
+        "memory_score": 1.0,
+        "consistency_score": 0.8382
+      }
+    },
+    "llama3:8b-instruct-q4_0": {
+      "llama_8b_t0": {
+        "bri": 0.5962,
+        "persona_pss": 0.3553,
+        "memory_score": 1.0,
+        "consistency_score": 0.8382
+      }
+    },
+    "gpt-oss-safeguard:20b": {
+      "gpt_20b_t0": {
+        "bri": 0.5817,
+        "persona_pss": 0.3947,
+        "memory_score": 1.0,
+        "consistency_score": 0.75
+      }
+    },
+    "mixtral:8x7b": {
+      "mixtral_moe_7b_t0": {
+        "bri": 0.6042,
+        "persona_pss": 0.3377,
+        "memory_score": 1.0,
+        "consistency_score": 0.9118
+      }
+    },
+    "qwen2.5:14b": {
+      "qwen_14b_t0": {
+        "bri": 0.6042,
+        "persona_pss": 0.4298,
+        "memory_score": 1.0,
+        "consistency_score": 0.75
+      }
+    },
+    "mistral-nemo:12b-instruct-2407-q4_K_M": {
+      "mistral_12b_t0": {
+        "bri": 0.6442,
+        "persona_pss": 0.4474,
+        "memory_score": 1.0,
+        "consistency_score": 0.8235
+      }
+    }
+  }
+}

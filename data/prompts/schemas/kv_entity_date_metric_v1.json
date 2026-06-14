@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kv_entity_date_metric_v1",
+  "title": "Generic entity-date-metric-value",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entity", "date", "metric", "value"],
+  "properties": {
+    "entity": { "type": "string", "minLength": 1 },
+    "date": { "type": "string", "minLength": 1 },
+    "metric": { "type": "string", "minLength": 1 },
+    "value": { "type": "string", "minLength": 1 }
+  }
+}

@@ -1,0 +1,67 @@
+suite: ai_evals_v1
+suite_version: "1.0.0"
+output_jsonl: data/prompts/v1_suite_generated.jsonl
+
+generation:
+  per_cell: 5
+  seeds: [2000, 2001, 2002, 2003, 2004]
+
+coverage:
+  tasks:
+    - extract_value
+    - json_one_field
+    - json_multi_field
+    - not_in_context
+    - distractor_robustness
+    - date_specific
+  difficulties: [easy, medium, hard]
+  domains: [finance, ops, product, mixed]
+  context_length_buckets: [short, medium, long]
+
+rendering:
+  concat_format: "CONTEXT:\n{context}\n\nINSTRUCTION:\n{prompt}\n"
+  length_buckets:
+    short: {min_numbers: 1, max_numbers: 4}
+    medium: {min_numbers: 5, max_numbers: 10}
+    long: {min_numbers: 10, max_numbers: 20}
+  difficulty_rules:
+    easy: {min_distractors: 0, max_distractors: 1}
+    medium: {min_distractors: 1, max_distractors: 2}
+    hard: {min_distractors: 3, max_distractors: 6}
+
+schemas:
+  default_kv: kv_entity_metric_v1
+  date_kv: kv_entity_date_metric_v1
+
+domains:
+  finance:
+    entities: [Apple, Microsoft, Alphabet, Amazon, Nvidia, Meta, Tesla, Netflix]
+    metrics:
+      - {name: revenue, unit: "billion USD", value_range: [20.0, 500.0]}
+      - {name: net_sales, unit: "billion USD", value_range: [20.0, 500.0]}
+      - {name: free_cash_flow, unit: "billion USD", value_range: [-20.0, 120.0]}
+      - {name: operating_income, unit: "billion USD", value_range: [-10.0, 200.0]}
+      - {name: operating_margin, unit: "%", value_range: [5.0, 45.0]}
+
+  ops:
+    entities: [Search API, Auth API, Payments API, Feed API, Reco API]
+    metrics:
+      - {name: p95_latency, unit: "ms", value_range: [80, 900]}
+      - {name: error_rate, unit: "%", value_range: [0.01, 2.5]}
+      - {name: availability, unit: "%", value_range: [99.0, 99.99]}
+      - {name: requests, unit: "", value_range: [1000000, 200000000]}
+
+  product:
+    entities: [checkout_banner_v2, search_rerank, onboarding_flow_v3, home_feed_refresh, ads_frequency_cap_v2]
+    metrics:
+      - {name: conversion, unit: "%", value_range: [0.5, 8.0]}
+      - {name: ctr, unit: "%", value_range: [1.0, 15.0]}
+      - {name: dau, unit: "", value_range: [100000, 20000000]}
+      - {name: sessions_per_user, unit: "", value_range: [1.0, 12.0]}
+
+  mixed:
+    entities: [Support ops, Incident report, Weekly summary]
+    metrics:
+      - {name: median_resolution_time, unit: "hours", value_range: [0.5, 72.0]}
+      - {name: tickets_created, unit: "", value_range: [50, 50000]}
+      - {name: sessions_affected, unit: "%", value_range: [0.1, 15.0]}

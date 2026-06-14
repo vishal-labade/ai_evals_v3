@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ops_one_field_v1",
+  "title": "Ops: cluster + avg GPU util",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cluster", "avg_gpu_util"],
+  "properties": {
+    "cluster": { "type": "string", "minLength": 1 },
+    "avg_gpu_util": { "type": "string", "minLength": 1 }
+  }
+}
